@@ -1,4 +1,4 @@
-# Aurelija Budreckyte — Portfolio
+# Aurelija Budreckyte: Portfolio
 
 A responsive personal portfolio focused on cybersecurity, data integrity, and
 security operations. The site is intentionally dependency-free so it can be
@@ -6,8 +6,8 @@ hosted directly with GitHub Pages.
 
 ## Pages
 
-- `index.html` — résumé-led portfolio, experience, credentials, work, and personal story
-- `soc-triage.html` — interactive SOC alert-triage project demo
+- `index.html`: résumé-led portfolio, experience, credentials, work, and personal story
+- `soc-triage.html`: interactive SOC alert-triage project demo
 
 ## Local preview
 
