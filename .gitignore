@@ -1,0 +1,11 @@
+.DS_Store
+
+# Source photos stay local; the site uses optimized, metadata-free derivatives.
+IMG_*.JPG
+IMG_*.jpg
+IMG_*.jpeg
+IMG_*.HEIC
+IMG_*.heic
+
+# Local preview artifacts
+*.log

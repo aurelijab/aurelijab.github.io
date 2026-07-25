@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An interactive SOC alert-triage workflow demo by Aurelija Budreckyte."
+    />
+    <meta name="theme-color" content="#20221f" />
+    <title>SOC Alert Triage Console — Aurelija Budreckyte</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Aurelija Budreckyte, home">
+        <span class="brand-mark" aria-hidden="true">AB</span>
+        <span class="brand-name">Aurelija Budreckyte</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span>
+        <span class="sr-only">Toggle menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="Aurelija_Budreckyte_Resume.pdf" target="_blank" rel="noreferrer">
+          Résumé <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="case-hero section-shell">
+        <div class="breadcrumb reveal">
+          <a href="index.html">Home</a><span>/</span><a href="index.html#work">Work</a><span>/</span>
+          <strong>SOC triage</strong>
+        </div>
+        <div class="case-title-row">
+          <div class="reveal">
+            <p class="case-eyebrow">Interactive project · 01</p>
+            <h1>Alert Triage<br /><em>Console</em></h1>
+          </div>
+          <p class="case-summary reveal">
+            A browser-based concept for moving alerts from noise to documented,
+            risk-aware decisions. Select an alert, inspect its evidence, and update
+            the response state below.
+          </p>
+        </div>
+        <div class="case-meta reveal">
+          <div><span>Role</span><strong>Security Analyst</strong></div>
+          <div><span>Focus</span><strong>Investigation workflow</strong></div>
+          <div><span>Tools</span><strong>HTML · CSS · JavaScript</strong></div>
+          <div><span>Status</span><strong>Prototype · v1</strong></div>
+        </div>
+      </section>
+
+      <section class="dashboard-wrap" aria-label="Interactive SOC alert triage demo">
+        <div class="dashboard" data-soc-dashboard>
+          <div class="dash-header">
+            <div class="dash-brand"><i>⌁</i><span>ALERT / CONTROL</span></div>
+            <div class="dash-live"><i></i><span>Simulation active</span></div>
+          </div>
+          <div class="dash-body">
+            <aside class="dash-sidebar" aria-label="Dashboard sections">
+              <span>OPERATIONS</span>
+              <button class="dash-nav-item active" type="button">
+                <span>Alert queue</span><b data-open-count>4</b>
+              </button>
+              <button class="dash-nav-item" type="button" tabindex="-1">
+                <span>Cases</span><small>02</small>
+              </button>
+              <button class="dash-nav-item" type="button" tabindex="-1">
+                <span>Evidence</span><small>18</small>
+              </button>
+              <button class="dash-nav-item" type="button" tabindex="-1">
+                <span>Reports</span><small>—</small>
+              </button>
+            </aside>
+
+            <div class="dash-main">
+              <div class="dash-title">
+                <div>
+                  <h2>Alert queue</h2>
+                  <p>Prioritized by severity, confidence, and potential impact</p>
+                </div>
+                <div class="filter-group" aria-label="Filter alerts">
+                  <button class="filter-button active" type="button" data-filter="All">All</button>
+                  <button class="filter-button" type="button" data-filter="Critical">Critical</button>
+                  <button class="filter-button" type="button" data-filter="Investigating">In review</button>
+                  <button class="filter-button" type="button" data-filter="Closed">Closed</button>
+                </div>
+              </div>
+
+              <div class="dash-metrics" aria-label="Queue metrics">
+                <div class="dash-metric">
+                  <span>Open alerts</span><strong data-metric-open>04</strong><small>Across 3 assets</small>
+                </div>
+                <div class="dash-metric">
+                  <span>Critical</span><strong data-metric-critical>01</strong><small>Needs attention</small>
+                </div>
+                <div class="dash-metric">
+                  <span>Mean triage</span><strong>07m</strong><small>Target &lt; 10m</small>
+                </div>
+              </div>
+
+              <div class="alert-list">
+                <div class="alert-list-head" aria-hidden="true">
+                  <span>Severity</span><span>Alert</span><span>Asset</span><span>State</span>
+                </div>
+                <div data-alert-list></div>
+              </div>
+            </div>
+
+            <aside class="dash-detail" aria-live="polite" data-alert-detail>
+              <div class="detail-top">
+                <div>
+                  <span class="detail-id" data-detail-id>ALT-2841</span>
+                  <h2 class="detail-title" data-detail-title>Impossible travel detected</h2>
+                  <p class="detail-subtitle" data-detail-subtitle>Identity & access · 2 min ago</p>
+                </div>
+                <div class="risk-score" data-detail-score aria-label="Risk score 92">92</div>
+              </div>
+
+              <div class="detail-section">
+                <span>Evidence snapshot</span>
+                <div class="evidence-grid">
+                  <div><span>User</span><strong data-evidence-user>a.budreckyte</strong></div>
+                  <div><span>Source IP</span><strong data-evidence-ip>185.220.101.42</strong></div>
+                  <div><span>Asset</span><strong data-evidence-asset>AB-PROD-04</strong></div>
+                  <div><span>MITRE</span><strong data-evidence-mitre>T1078</strong></div>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <span>Analyst assessment</span>
+                <p class="analyst-note" data-detail-note>
+                  Two successful sign-ins occurred from Boston and Frankfurt within
+                  eleven minutes. The source IP has prior anonymizer activity.
+                  Validate the user session and revoke active tokens if unauthorized.
+                </p>
+              </div>
+
+              <div class="detail-section">
+                <span>Recommended next steps</span>
+                <p class="analyst-note" data-detail-next>
+                  Confirm user travel status · Review MFA logs · Check adjacent
+                  identity activity · Preserve sign-in evidence
+                </p>
+              </div>
+
+              <div class="detail-actions">
+                <button class="dash-button" type="button" data-action="investigate">Start investigation</button>
+                <button class="dash-button secondary" type="button" data-action="close">Close alert</button>
+              </div>
+            </aside>
+          </div>
+          <p class="demo-note">
+            Demonstration data only. No production systems, credentials, or real security events are represented.
+          </p>
+        </div>
+      </section>
+
+      <section class="case-study section-shell">
+        <div class="section-label reveal">
+          <span>02</span>
+          <p>Behind the workflow</p>
+        </div>
+        <div class="case-study-grid">
+          <h2 class="display-heading reveal">Designed for<br /><em>decisive analysis.</em></h2>
+          <div class="case-sections">
+            <article class="case-section reveal">
+              <span>01</span>
+              <div>
+                <h3>Prioritize what matters</h3>
+                <p>
+                  Severity alone is not a decision. The queue pairs severity with
+                  confidence, asset context, and potential impact so the analyst can
+                  start with the event most likely to matter.
+                </p>
+              </div>
+            </article>
+            <article class="case-section reveal">
+              <span>02</span>
+              <div>
+                <h3>Keep evidence close</h3>
+                <p>
+                  Core entities, MITRE technique mapping, and source details stay
+                  beside the alert. The analyst gets enough context to form a
+                  hypothesis without losing their place in the queue.
+                </p>
+              </div>
+            </article>
+            <article class="case-section reveal">
+              <span>03</span>
+              <div>
+                <h3>Make state visible</h3>
+                <p>
+                  New, investigating, and closed states clarify ownership and
+                  reduce duplicate work. In a production version, every transition
+                  would be timestamped and added to an immutable case history.
+                </p>
+              </div>
+            </article>
+            <article class="case-section reveal">
+              <span>04</span>
+              <div>
+                <h3>Next iteration</h3>
+                <p>
+                  Planned extensions include ingestion from sample Splunk events,
+                  analyst notes, enrichment checks, an escalation path, and a
+                  documented incident timeline.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-shell" id="contact">
+        <div class="contact-card reveal">
+          <p class="contact-kicker">Want to talk through the investigation?</p>
+          <h2>Let’s make the<br /><em>signal clearer.</em></h2>
+          <div class="contact-bottom">
+            <a class="button button-dark" href="mailto:aurelijabudreckyte@gmail.com">
+              Start a conversation <span aria-hidden="true">↗</span>
+            </a>
+            <div class="contact-links">
+              <a href="index.html#work">More work ←</a>
+              <a href="https://github.com/aurelijab" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">AB</span>
+        <span class="brand-name">Aurelija Budreckyte</span>
+      </div>
+      <p>Cybersecurity · Data integrity · Boston, MA</p>
+      <p>© <span data-year></span> Built with clarity and care.</p>
+    </footer>
+  </body>
+</html>
