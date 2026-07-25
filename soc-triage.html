@@ -48,123 +48,68 @@
             <h1>Alert Triage<br /><em>Console</em></h1>
           </div>
           <p class="case-summary reveal">
-            A browser-based concept for moving alerts from noise to documented,
-            risk-aware decisions. Select an alert, inspect its evidence, and update
-            the response state below.
+            An explainable Tier 1 workflow that normalizes alerts, extracts
+            indicators, calculates an evidence-based risk score, maps supported
+            findings to MITRE ATT&amp;CK, and produces an incident report.
           </p>
         </div>
         <div class="case-meta reveal">
-          <div><span>Role</span><strong>Security Analyst</strong></div>
-          <div><span>Focus</span><strong>Investigation workflow</strong></div>
-          <div><span>Tools</span><strong>HTML · CSS · JavaScript</strong></div>
-          <div><span>Status</span><strong>Prototype · v1</strong></div>
+          <div><span>Role</span><strong>Security Analyst &amp; Developer</strong></div>
+          <div><span>Focus</span><strong>Explainable alert triage</strong></div>
+          <div><span>Tools</span><strong>Python · Streamlit · SQLite</strong></div>
+          <div><span>Status</span><strong>Live demonstration</strong></div>
         </div>
       </section>
 
-      <section class="dashboard-wrap" aria-label="Interactive SOC alert triage demo">
-        <div class="dashboard" data-soc-dashboard>
-          <div class="dash-header">
-            <div class="dash-brand"><i>⌁</i><span>ALERT / CONTROL</span></div>
-            <div class="dash-live"><i></i><span>Simulation active</span></div>
+      <section class="streamlit-demo" aria-labelledby="live-demo-title">
+        <div class="streamlit-demo-header section-shell">
+          <div>
+            <p class="case-eyebrow">Live application</p>
+            <h2 id="live-demo-title">Work the alert.<br /><em>Follow the evidence.</em></h2>
           </div>
-          <div class="dash-body">
-            <aside class="dash-sidebar" aria-label="Dashboard sections">
-              <span>OPERATIONS</span>
-              <button class="dash-nav-item active" type="button">
-                <span>Alert queue</span><b data-open-count>4</b>
-              </button>
-              <button class="dash-nav-item" type="button" tabindex="-1">
-                <span>Cases</span><small>02</small>
-              </button>
-              <button class="dash-nav-item" type="button" tabindex="-1">
-                <span>Evidence</span><small>18</small>
-              </button>
-              <button class="dash-nav-item" type="button" tabindex="-1">
-                <span>Reports</span><small>—</small>
-              </button>
-            </aside>
-
-            <div class="dash-main">
-              <div class="dash-title">
-                <div>
-                  <h2>Alert queue</h2>
-                  <p>Prioritized by severity, confidence, and potential impact</p>
-                </div>
-                <div class="filter-group" aria-label="Filter alerts">
-                  <button class="filter-button active" type="button" data-filter="All">All</button>
-                  <button class="filter-button" type="button" data-filter="Critical">Critical</button>
-                  <button class="filter-button" type="button" data-filter="Investigating">In review</button>
-                  <button class="filter-button" type="button" data-filter="Closed">Closed</button>
-                </div>
-              </div>
-
-              <div class="dash-metrics" aria-label="Queue metrics">
-                <div class="dash-metric">
-                  <span>Open alerts</span><strong data-metric-open>04</strong><small>Across 3 assets</small>
-                </div>
-                <div class="dash-metric">
-                  <span>Critical</span><strong data-metric-critical>01</strong><small>Needs attention</small>
-                </div>
-                <div class="dash-metric">
-                  <span>Mean triage</span><strong>07m</strong><small>Target &lt; 10m</small>
-                </div>
-              </div>
-
-              <div class="alert-list">
-                <div class="alert-list-head" aria-hidden="true">
-                  <span>Severity</span><span>Alert</span><span>Asset</span><span>State</span>
-                </div>
-                <div data-alert-list></div>
-              </div>
-            </div>
-
-            <aside class="dash-detail" aria-live="polite" data-alert-detail>
-              <div class="detail-top">
-                <div>
-                  <span class="detail-id" data-detail-id>ALT-2841</span>
-                  <h2 class="detail-title" data-detail-title>Impossible travel detected</h2>
-                  <p class="detail-subtitle" data-detail-subtitle>Identity & access · 2 min ago</p>
-                </div>
-                <div class="risk-score" data-detail-score aria-label="Risk score 92">92</div>
-              </div>
-
-              <div class="detail-section">
-                <span>Evidence snapshot</span>
-                <div class="evidence-grid">
-                  <div><span>User</span><strong data-evidence-user>a.budreckyte</strong></div>
-                  <div><span>Source IP</span><strong data-evidence-ip>185.220.101.42</strong></div>
-                  <div><span>Asset</span><strong data-evidence-asset>AB-PROD-04</strong></div>
-                  <div><span>MITRE</span><strong data-evidence-mitre>T1078</strong></div>
-                </div>
-              </div>
-
-              <div class="detail-section">
-                <span>Analyst assessment</span>
-                <p class="analyst-note" data-detail-note>
-                  Two successful sign-ins occurred from Boston and Frankfurt within
-                  eleven minutes. The source IP has prior anonymizer activity.
-                  Validate the user session and revoke active tokens if unauthorized.
-                </p>
-              </div>
-
-              <div class="detail-section">
-                <span>Recommended next steps</span>
-                <p class="analyst-note" data-detail-next>
-                  Confirm user travel status · Review MFA logs · Check adjacent
-                  identity activity · Preserve sign-in evidence
-                </p>
-              </div>
-
-              <div class="detail-actions">
-                <button class="dash-button" type="button" data-action="investigate">Start investigation</button>
-                <button class="dash-button secondary" type="button" data-action="close">Close alert</button>
-              </div>
-            </aside>
+          <div class="streamlit-demo-intro">
+            <p>
+              This is the complete Streamlit application from the separate
+              <a
+                href="https://github.com/aurelijab/soc_alert_triage_agent"
+                target="_blank"
+                rel="noreferrer"
+              >soc_alert_triage_agent repository ↗</a>.
+              Use the sanitized sample below to explore explainable scoring,
+              indicator extraction, MITRE ATT&amp;CK mapping, and incident reporting.
+            </p>
+            <a
+              class="button button-light"
+              href="https://aurelija-soc-triage.streamlit.app/?demo=brute-force"
+              target="_blank"
+              rel="noreferrer"
+            >Open full screen <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="demo-note">
-            Demonstration data only. No production systems, credentials, or real security events are represented.
-          </p>
         </div>
+        <div class="streamlit-frame-shell">
+          <div class="streamlit-frame-top" aria-hidden="true">
+            <div><i></i><i></i><i></i></div>
+            <span>LIVE / SANITIZED DEMONSTRATION</span>
+            <span>STREAMLIT CLOUD</span>
+          </div>
+          <div class="streamlit-loading" data-streamlit-loading>
+            <span class="streamlit-loading-mark" aria-hidden="true">⌁</span>
+            <strong>Loading the triage workspace…</strong>
+            <small>The hosted application may take a moment to wake.</small>
+          </div>
+          <iframe
+            class="streamlit-frame"
+            src="https://aurelija-soc-triage.streamlit.app/?embed=true&amp;demo=brute-force"
+            title="Aurelija Budreckyte's SOC Alert Triage Agent"
+            loading="eager"
+            allow="clipboard-read; clipboard-write"
+            data-streamlit-frame
+          ></iframe>
+        </div>
+        <p class="demo-note">
+          Demonstration data only. Do not submit credentials, confidential logs,
+          regulated data, or production security telemetry.
+        </p>
       </section>
 
       <section class="case-study section-shell">
@@ -178,44 +123,44 @@
             <article class="case-section reveal">
               <span>01</span>
               <div>
-                <h3>Prioritize what matters</h3>
+                <h3>Normalize the signal</h3>
                 <p>
-                  Severity alone is not a decision. The queue pairs severity with
-                  confidence, asset context, and potential impact so the analyst can
-                  start with the event most likely to matter.
+                  The intake layer accepts plain text, syslog, JSON, CSV, key-value,
+                  CEF, and LEEF records, then converts the selected alert into a
+                  consistent form for analysis.
                 </p>
               </div>
             </article>
             <article class="case-section reveal">
               <span>02</span>
               <div>
-                <h3>Keep evidence close</h3>
+                <h3>Make the score explainable</h3>
                 <p>
-                  Core entities, MITRE technique mapping, and source details stay
-                  beside the alert. The analyst gets enough context to form a
-                  hypothesis without losing their place in the queue.
+                  Every risk point is tied to a named rule and visible evidence.
+                  Analysts can challenge the result instead of accepting an opaque
+                  severity label.
                 </p>
               </div>
             </article>
             <article class="case-section reveal">
               <span>03</span>
               <div>
-                <h3>Make state visible</h3>
+                <h3>Connect findings to action</h3>
                 <p>
-                  New, investigating, and closed states clarify ownership and
-                  reduce duplicate work. In a production version, every transition
-                  would be timestamped and added to an immutable case history.
+                  Validated indicators and supported evidence map to specific MITRE
+                  ATT&amp;CK techniques, defensive recommendations, and a clear
+                  escalation disposition.
                 </p>
               </div>
             </article>
             <article class="case-section reveal">
               <span>04</span>
               <div>
-                <h3>Next iteration</h3>
+                <h3>Preserve the investigation</h3>
                 <p>
-                  Planned extensions include ingestion from sample Splunk events,
-                  analyst notes, enrichment checks, an escalation path, and a
-                  documented incident timeline.
+                  Sanitized results can be correlated with local history and
+                  exported as Markdown, JSON, or PDF incident reports. The app
+                  recommends response steps but never executes them.
                 </p>
               </div>
             </article>

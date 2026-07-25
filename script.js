@@ -50,6 +50,15 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
+const streamlitFrame = document.querySelector("[data-streamlit-frame]");
+const streamlitLoading = document.querySelector("[data-streamlit-loading]");
+
+if (streamlitFrame && streamlitLoading) {
+  streamlitFrame.addEventListener("load", () => {
+    streamlitLoading.classList.add("is-loaded");
+  });
+}
+
 const dashboard = document.querySelector("[data-soc-dashboard]");
 
 if (dashboard) {
